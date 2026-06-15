@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inside Success TV — Support Playbook</title>
+<meta name="description" content="Find the situation, copy the reply, send. The Inside Success TV support team's go-to guide." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ===================== THEME TOKENS ===================== */
+  :root, [data-theme="dark"]{
+    --bg:#0b0c0e;
+    --bg-glow:rgba(217,178,106,.10);
+    --card:#15161b;
+    --card-2:#101115;
+    --line:#282a31;
+    --line-soft:#1d1f25;
+    --chip:#1d1f26;
+    --text:#ece9e1;          /* primary — warm off-white */
+    --text-2:#b0aca2;        /* secondary */
+    --text-3:#7f7c74;        /* muted */
+    --gold:#dcb56b;          /* accent on dark */
+    --gold-bright:#f1d091;   /* hover / glow */
+    --gold-deep:#b88c3f;
+    --gold-solid:#dcb56b;    /* button fill */
+    --on-gold:#1c1505;       /* text on gold */
+    --reply-bg:#0e1013;
+    --reply-line:#2a2c33;
+    --ring:rgba(220,181,107,.55);
+    --mark:rgba(220,181,107,.32);
+    --mark-text:#1c1505;
+    --warn-bg:rgba(220,181,107,.07);
+    --warn-line:rgba(220,181,107,.28);
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 14px 34px -18px rgba(0,0,0,.8);
+    --shadow-lg:0 28px 70px -32px rgba(0,0,0,.92), 0 0 0 1px rgba(220,181,107,.05);
+    --card-inset:inset 0 1px 0 rgba(255,255,255,.05);
+    --hover-border:rgba(220,181,107,.50);
+    --hover-glow:0 18px 50px -26px rgba(220,181,107,.30);
+    --lockup-bg:#08090b;
+    --lockup-line:rgba(255,255,255,.09);
+    --header-bg:rgba(11,12,14,.82);
+    --header-edge:0 16px 30px -28px rgba(0,0,0,.85);
+  }
+  [data-theme="light"]{
+    --bg:#f6f3ec;
+    --bg-glow:rgba(176,131,40,.10);
+    --card:#ffffff;
+    --card-2:#fbf8f1;
+    --line:#e6e0d2;
+    --line-soft:#efe9da;
+    --chip:#f1ead9;
+    --text:#1c1e22;          /* primary — near-black */
+    --text-2:#56534c;        /* secondary */
+    --text-3:#86827a;        /* muted */
+    --gold:#8a6417;          /* accent on light (AA contrast) */
+    --gold-bright:#6f4f10;
+    --gold-deep:#5d420c;
+    --gold-solid:#c79a3b;    /* button fill */
+    --on-gold:#1c1505;       /* text on gold */
+    --reply-bg:#fbf8f1;
+    --reply-line:#e6e0d2;
+    --ring:rgba(138,100,23,.45);
+    --mark:rgba(199,154,59,.40);
+    --mark-text:#1c1505;
+    --warn-bg:rgba(176,131,40,.08);
+    --warn-line:rgba(176,131,40,.30);
+    --shadow:0 1px 2px rgba(60,50,20,.05), 0 12px 28px -16px rgba(90,68,20,.20);
+    --shadow-lg:0 26px 58px -28px rgba(90,68,20,.30), 0 0 0 1px rgba(138,100,23,.05);
+    --card-inset:inset 0 1px 0 rgba(255,255,255,.8);
+    --hover-border:rgba(138,100,23,.38);
+    --hover-glow:0 18px 46px -26px rgba(176,131,40,.30);
+    --lockup-bg:#08090b;     /* logo always sits on dark */
+    --lockup-line:rgba(0,0,0,.12);
+    --header-bg:rgba(246,243,236,.85);
+    --header-edge:0 16px 30px -28px rgba(90,68,20,.22);
+  }
+  :root{
+    --radius:16px;
+    --display:'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+    --body:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:var(--body); color:var(--text); background:var(--bg);
+    background-image:
+      radial-gradient(1100px 560px at 50% -16%, var(--bg-glow), transparent 60%),
+      radial-gradient(720px 460px at 100% 4%, var(--bg-glow), transparent 58%);
+    background-repeat:no-repeat;
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+    transition:background-color .25s, color .25s;
+  }
+  a{color:var(--gold); text-underline-offset:2px;}
+  :focus-visible{outline:2px solid var(--ring); outline-offset:2px; border-radius:6px;}
+
+  /* ===================== HEADER ===================== */
+  header.top{position:sticky; top:0; z-index:50; background:var(--header-bg); backdrop-filter:saturate(150%) blur(14px); border-bottom:1px solid var(--line); box-shadow:var(--header-edge); transition:background-color .25s, border-color .25s;}
+  .bar{max-width:1140px; margin:0 auto; padding:15px 24px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center; gap:13px; min-width:0;}
+  .logo-lockup{
+    display:inline-flex; align-items:center; justify-content:center; overflow:hidden;
+    background:var(--lockup-bg); border:1px solid var(--lockup-line);
+    border-radius:11px; padding:0; box-shadow:0 4px 16px -6px rgba(0,0,0,.55); flex:none;
+  }
+  .logo-img{width:154px; height:40px; object-fit:cover; object-position:center; display:block;}
+  .logo-fallback{padding:9px 13px;}
+  .logo-fallback{
+    font-family:var(--display); font-weight:800; font-size:16px; letter-spacing:.06em;
+    color:#fff; text-shadow:0 0 16px rgba(220,181,107,.65); white-space:nowrap; display:none;
+  }
+  .logo-fallback b{color:var(--gold-bright); font-weight:800;}
+  .brand .divider{width:1px; height:30px; background:var(--line); flex:none;}
+  .brand .titles h1{font-family:var(--display); font-weight:800; font-size:17px; margin:0; letter-spacing:-.02em; color:var(--text); line-height:1.12;}
+  .brand .titles .sub{font-size:12px; color:var(--text-3); font-weight:600; letter-spacing:.02em;}
+  .search{position:relative; flex:1 1 300px; min-width:200px;}
+  .search svg.s-ic{position:absolute; left:15px; top:50%; transform:translateY(-50%); color:var(--text-3);}
+  #q{width:100%; padding:13px 44px; font-family:var(--body); font-size:15px; color:var(--text);
+     background:var(--card-2); border:1.5px solid var(--line); border-radius:12px; transition:border-color .15s, box-shadow .15s; outline:none;}
+  #q::placeholder{color:var(--text-3);}
+  #q:focus{border-color:var(--gold); box-shadow:0 0 0 4px var(--ring);}
+  .kbd{position:absolute; right:12px; top:50%; transform:translateY(-50%); font-size:11px; color:var(--text-3); border:1px solid var(--line); border-radius:6px; padding:2px 7px; background:var(--bg); font-family:var(--body);}
+  #q:focus + .kbd, #q:not(:placeholder-shown) + .kbd{display:none;}
+  .theme-toggle{
+    flex:none; cursor:pointer; width:42px; height:42px; border-radius:11px; border:1.5px solid var(--line);
+    background:var(--card-2); color:var(--gold); display:grid; place-items:center; transition:border-color .15s, color .15s, background .15s;
+  }
+  .theme-toggle:hover{border-color:var(--gold); color:var(--gold-bright);}
+
+  /* ===================== CATEGORY PILLS ===================== */
+  nav.cats{border-top:1px solid var(--line-soft); background:transparent;}
+  .cats-inner{max-width:1140px; margin:0 auto; padding:11px 24px; display:flex; gap:9px; overflow-x:auto; scrollbar-width:none;}
+  .cats-inner::-webkit-scrollbar{display:none;}
+  .pill{flex:none; cursor:pointer; border:1.5px solid var(--line); background:var(--card-2); color:var(--text-2);
+        font-family:var(--body); font-weight:600; font-size:13.5px; padding:8px 15px; border-radius:999px; white-space:nowrap;
+        transition:all .15s; display:inline-flex; align-items:center; gap:7px;}
+  .pill .dot{width:7px; height:7px; border-radius:50%; background:var(--gold);}
+  .pill:hover{border-color:var(--gold); color:var(--text);}
+  .pill.active{background:var(--gold-solid); border-color:var(--gold-solid); color:var(--on-gold); box-shadow:0 6px 18px -7px var(--ring);}
+  .pill.active .dot{background:var(--on-gold);}
+
+  /* ===================== LAYOUT ===================== */
+  main{max-width:1140px; margin:0 auto; padding:34px 24px 80px;}
+  .hero{margin:6px 0 30px;}
+  .hero h2{font-family:var(--display); font-weight:800; font-size:clamp(28px,4.4vw,42px); letter-spacing:-.03em; color:var(--text); margin:0 0 10px; line-height:1.05;}
+  .hero h2 .accent{color:var(--gold); text-shadow:0 0 26px var(--ring);}
+  .hero p{font-size:16px; color:var(--text-2); max-width:640px; margin:0;}
+  .hero p strong{color:var(--text);}
+  .count{font-size:12.5px; color:var(--text-3); margin-top:14px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;}
+
+  section.cat{margin-bottom:14px; scroll-margin-top:150px;}
+  .cat-head{display:flex; align-items:center; gap:12px; margin:30px 0 16px;}
+  .cat-head .ic{width:34px; height:34px; border-radius:9px; flex:none; display:grid; place-items:center; background:var(--chip); color:var(--gold);}
+  .cat-head h3{font-family:var(--display); font-weight:700; font-size:21px; letter-spacing:-.02em; color:var(--text); margin:0;}
+  .cat-head .desc{font-size:13px; color:var(--text-3);}
+  .cat-head .line{flex:1; height:1px; background:linear-gradient(90deg, var(--line), transparent);}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:18px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px 22px 20px; box-shadow:var(--card-inset), var(--shadow); position:relative; display:flex; flex-direction:column; transition:box-shadow .2s ease, transform .2s ease, border-color .2s ease, background-color .25s ease;}
+  .card:hover{box-shadow:var(--card-inset), var(--shadow-lg), var(--hover-glow); border-color:var(--hover-border); transform:translateY(-3px);}
+  .card h4{font-family:var(--display); font-weight:700; font-size:17px; letter-spacing:-.01em; color:var(--text); margin:0 0 13px; line-height:1.22;}
+
+  .field{margin-bottom:13px;}
+  .label{font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; display:flex; align-items:center; gap:6px;}
+  .says{font-size:14px; color:var(--text-2); font-style:italic; border-left:3px solid var(--chip); padding:2px 0 2px 12px; margin:0;}
+  ul.steps{margin:0; padding:0; list-style:none; counter-reset:s;}
+  ul.steps li{position:relative; padding:3px 0 3px 28px; font-size:14px; color:var(--text-2); margin-bottom:2px; counter-increment:s;}
+  ul.steps li::before{content:counter(s); position:absolute; left:0; top:3px; width:19px; height:19px; border-radius:50%; background:var(--chip); color:var(--gold); font-size:11px; font-weight:700; display:grid; place-items:center; font-family:var(--body);}
+
+  .reply{margin-top:4px; background:var(--reply-bg); border:1px solid var(--reply-line); border-radius:12px; overflow:hidden;}
+  .reply-body{padding:14px 15px; font-size:13.5px; color:var(--text); white-space:pre-wrap; line-height:1.62; font-family:var(--body);}
+  .reply-foot{display:flex; justify-content:flex-end; padding:0 12px 12px;}
+  .copy{cursor:pointer; border:none; border-radius:9px; padding:9px 16px; background:var(--gold-solid); color:var(--on-gold);
+        font-family:var(--body); font-weight:700; font-size:13.5px; display:inline-flex; align-items:center; gap:8px;
+        transition:background .15s, transform .1s, box-shadow .15s; box-shadow:0 6px 18px -8px var(--ring);}
+  .copy:hover{background:var(--gold-bright);}
+  .copy:active{transform:translateY(1px);}
+  .copy.done{background:transparent; color:var(--gold); box-shadow:0 0 0 1.5px var(--gold) inset;}
+
+  .watch{margin-top:14px; background:var(--warn-bg); border:1px solid var(--warn-line); border-radius:11px; padding:11px 13px;}
+  .watch .label{color:var(--gold);}
+  .watch ul{margin:0; padding-left:17px;}
+  .watch li{font-size:13px; color:var(--text-2); margin-bottom:3px;}
+
+  .tag-na{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--gold); background:var(--warn-bg); border:1px solid var(--warn-line); padding:3px 9px; border-radius:999px; margin-top:2px;}
+
+  /* ===================== REFERENCE PANEL ===================== */
+  .ref{margin-top:34px; background:
+        radial-gradient(720px 320px at 0% 0%, var(--bg-glow), transparent 60%),
+        linear-gradient(160deg, var(--card) 0%, var(--card-2) 100%);
+       border:1px solid var(--line); border-radius:20px; padding:30px 30px 26px; box-shadow:var(--shadow-lg);}
+  .ref h3{font-family:var(--display); font-weight:800; font-size:22px; margin:0 0 4px; letter-spacing:-.02em; color:var(--text);}
+  .ref .ref-sub{color:var(--text-3); font-size:14px; margin-bottom:22px;}
+  .ref-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:26px;}
+  .ref h4{font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--gold); margin:0 0 11px;}
+  .ref ul{margin:0; padding:0; list-style:none;}
+  .ref .voice li{font-size:14px; color:var(--text); padding:6px 0 6px 20px; position:relative;}
+  .ref .voice li strong{color:var(--text);}
+  .ref .voice li::before{content:''; position:absolute; left:0; top:13px; width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px var(--ring);}
+  .ref .links li{padding:7px 0; border-bottom:1px solid var(--line); font-size:13.5px; color:var(--text-2);}
+  .ref .links li:last-child{border-bottom:none;}
+  .ref .links .k{color:var(--text); font-weight:600;}
+  .ref .links .v{color:var(--text-3); font-family:var(--body);}
+  .ref .links code{background:var(--chip); padding:2px 7px; border-radius:6px; font-size:12.5px; color:var(--gold);}
+
+  /* ===================== MISC ===================== */
+  .empty{text-align:center; padding:70px 20px; color:var(--text-2); display:none;}
+  .empty.show{display:block;}
+  .empty .big{font-family:var(--display); font-weight:700; font-size:22px; color:var(--text); margin-bottom:6px;}
+
+  footer{max-width:1140px; margin:0 auto; padding:8px 24px 56px; text-align:center;}
+  footer .credit{font-family:var(--display); font-weight:700; font-size:14.5px; color:var(--text-2); letter-spacing:.01em; margin-bottom:7px;}
+  footer .credit strong{color:var(--text);}
+  footer .credit .heart{color:var(--gold); text-shadow:0 0 12px var(--ring); font-style:normal; display:inline-block; animation:beat 1.6s ease-in-out infinite;}
+  footer .credit .tag{color:var(--gold);}
+  footer .fine{color:var(--text-3); font-size:12.5px;}
+  @keyframes beat{0%,100%{transform:scale(1);}15%{transform:scale(1.22);}30%{transform:scale(1);}45%{transform:scale(1.12);}}
+
+  mark{background:var(--mark); color:var(--mark-text); border-radius:3px; padding:0 2px;}
+  ::selection{background:var(--mark); color:var(--mark-text);}
+  [data-theme="light"] .hero h2 .accent{text-shadow:none;}
+  .pill, .reply, .ref, #q, .cat-head .ic{transition:background-color .25s ease, border-color .25s ease, color .25s ease;}
+
+  @media (max-width:680px){
+    .ref-grid{grid-template-columns:1fr; gap:22px;}
+    .grid{grid-template-columns:1fr;}
+    .bar{padding:12px 16px; gap:12px;}
+    main{padding:24px 16px 60px;}
+    .brand .titles{display:none;}
+    .brand .divider{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition:none !important; scroll-behavior:auto !important; animation:none !important;} }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <div class="brand">
+      <a class="logo-lockup" href="#" aria-label="Inside Success TV">
+        <img class="logo-img" src="images.jpeg" alt="Inside Success TV"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='inline';" />
+        <span class="logo-fallback">INSIDE&nbsp;<b>SUCCESS</b></span>
+      </a>
+      <span class="divider"></span>
+      <div class="titles">
+        <h1>Support Playbook</h1>
+        <div class="sub">Client Concierge</div>
+      </div>
+    </div>
+    <div class="search">
+      <svg class="s-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="q" type="text" placeholder="Search a situation — try “refund”, “reschedule”, “monday”…" autocomplete="off" spellcheck="false" aria-label="Search situations" />
+      <span class="kbd">/</span>
+    </div>
+    <button class="theme-toggle" id="themeBtn" type="button" aria-label="Switch to light theme" aria-pressed="false"></button>
+  </div>
+  <nav class="cats" aria-label="Categories"><div class="cats-inner" id="pills"></div></nav>
+</header>
+
+<main>
+  <div class="hero">
+    <h2>Find the situation. <span class="accent">Copy the reply.</span> Send.</h2>
+    <p>Your go-to guide for answering customer emails quickly and consistently. Search or pick a category, then copy the ready-made reply and swap in the details in <strong>[brackets]</strong>.</p>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div id="results"></div>
+
+  <div class="empty" id="empty">
+    <div class="big">No matches</div>
+    <div>Try a different word — like “payment”, “b-roll”, “episode”, or “booking”.</div>
+  </div>
+
+  <section class="ref" aria-label="Quick reference">
+    <h3>Quick reference</h3>
+    <div class="ref-sub">How we sound, and the links you reach for most.</div>
+    <div class="ref-grid">
+      <div>
+        <h4>How we sound</h4>
+        <ul class="voice">
+          <li>Warm, short, and human. Greet people by first name.</li>
+          <li>If someone’s upset, lead with empathy before anything else.</li>
+          <li>Sign off as <strong>[Your name], Client Concierge Manager</strong> (or just “Best,”).</li>
+          <li><strong>Stay in your lane.</strong> Casting decisions, scripting, or production details → loop in that team and say so. Don’t guess.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links &amp; resources</h4>
+        <ul class="links">
+          <li><span class="k">Reschedule / book</span> &nbsp;<code>go.oncehub.com/inside-success</code></li>
+          <li><span class="k">Update a card / failed payment</span> <span class="v">— secure card-update link (Whop)</span></li>
+          <li><span class="k">Approve an episode</span> &nbsp;<code>insidesuccesstv.com/episodeapproval</code></li>
+          <li><span class="k">Join Money Monday</span> &nbsp;<code>insidesuccesstv.com/mondaylive</code> <span class="v">(Mon 11:30am EST)</span></li>
+          <li><span class="k">B-roll</span> <span class="v">— Google Drive / Dropbox folder link (view access) to the support inbox</span></li>
+          <li><span class="k">Help Center</span> &nbsp;<code>intercom.help/inside-success</code></li>
+          <li><span class="k">Studio</span> <span class="v">— 1210 Washington Ave, Unit 250, Miami, FL 33139</span></li>
+          <li><span class="k">“Link won’t open” fix</span> <span class="v">— different browser/device, or switch Wi-Fi ↔ cellular</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="credit">Made with <span class="heart">♥</span> by <strong>Saqlain</strong> · <span class="tag">@shippingDepartment</span> · ISTV</div>
+  <div class="fine">Inside Success TV — Support Playbook · Built from real support emails · Keep replies on-brand &amp; PII-safe.</div>
+</footer>
+
+<script>
+const DATA = [
+  {
+    id:"billing", name:"Billing & Payments", desc:"Payments, charges, card updates, refunds",
+    icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2.5"/><line x1="2" y1="10" x2="22" y2="10"/></svg>',
+    cases:[
+      {
+        title:'“When is my next payment, and which card?”',
+        keywords:"payment due renew card on file which card auto-renew",
+        says:"They want to know when their next payment is due and whether it'll use the card on file or a different one.",
+        steps:["Check the renewal date and card on file in the billing system.","Confirm both back to them.","Offer the secure card-update link if they want to switch cards."],
+        reply:`Hi [their first name],
+Thanks for checking in. Your payment will auto-renew on [date], and it'll be charged to the card on file ending in [last 4 digits].
+If you'd prefer to use a different card, just let me know and I'll send over a secure link to update it before then.
+Best,`,
+        watch:["Never take card numbers over email — always send the secure card-update link instead."]
+      },
+      {
+        title:"A payment failed (reaching out first)",
+        keywords:"failed payment unsuccessful recurring declined update card dunning",
+        says:"Use this to let someone know their recurring payment didn't go through.",
+        steps:[],
+        reply:`Hey!
+I hope this email finds you well! I'm writing to let you know that your most recent recurring payment for our services was unsuccessful.
+Please don't worry – these things happen! Could you let us know how you'd like to handle this?
+If you need to update your credit card info or use a different card than the one we have on file, it's super easy!
+You can update your credit card info with this link: [secure card-update link]
+This form only collects info and does not charge your card. Once you're done, let me know so I can apply the new info to your account.
+If you have already spoken to a team member about your payment, please let me know in your reply so I can update our systems to reflect this.
+I look forward to your response today.
+Best regards,`,
+        watch:["Reassure them the form only collects info — it doesn't charge the card. It calms nerves.","If they say they've already sorted payment with someone, note the account so they aren't chased again."]
+      },
+      {
+        title:"“I'm going through a hard time — can I pay later?”",
+        keywords:"hardship pay later defer double up pause billing extension can't pay",
+        says:"They can't pay on time (a family or money hardship) and offer to pay later, often doubling up next month.",
+        steps:["Lead with empathy.","If their plan is reasonable, agree to it.","Pause anything from going out in the meantime, and note the account.","Offer the payment link for when they're ready."],
+        reply:`Hi [their first name],
+Thanks for the update, and sorry to hear about [the situation]. That plan works. Make this month's payment when you can, and double up on the next one after [date]. I'll note your account, so nothing further goes out in the meantime.
+Just let me know when you're ready to make the payment and I'll send you the new link.
+Best,`,
+        watch:["If they mention something about their shoot or script, pass that note to the right team and tell them you've done so.","Actually pause the billing — don't just say you will."]
+      },
+      {
+        title:"“I want a refund” / “I'm disputing this charge”",
+        keywords:"refund dispute chargeback bank unauthorized charge amex unhappy",
+        says:"They're unhappy about a charge, want it refunded, or threaten to dispute it with their bank.",
+        steps:["Stay calm and factual. Don't promise a refund or make contract decisions on your own.","Pull up their account history — contract, payment schedule, any recorded calls — so the facts are clear.","Escalate to the account owner / billing lead right away, ideally before they contact their bank, and let the customer know you're getting it sorted directly."],
+        reply:null,
+        na:"No set reply — keep it calm and escalate",
+        watch:["This one isn't yours to resolve alone. The goal is to keep it calm and get the right person on it fast."]
+      }
+    ]
+  },
+  {
+    id:"pre-shoot", name:"Pre-Shoot Coordination", desc:"Changing, moving, or cancelling sessions; booking",
+    icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="16" y1="2.5" x2="16" y2="6.5"/></svg>',
+    cases:[
+      {
+        title:"“I need to change / move / cancel my studio session”",
+        keywords:"reschedule cancel move studio session push date appointment change booking oncehub",
+        says:"Something came up — travel trouble, an accident, illness, a clash — and they need to push, bring forward, or cancel and rebook.",
+        steps:['Say a quick, kind “sorry to hear that.”',"Send them the self-serve link so they can pick a new time themselves."],
+        reply:`Hi [their first name],
+Sorry to hear that — you can use this link to reschedule your session:
+go.oncehub.com/inside-success
+Thank you,
+[Your name]
+Client Concierge Manager`,
+        watch:["The same link handles everything — reschedule, moving earlier, or cancel-and-rebook. They choose the new time.","If the link won't open, point them to a different browser or device.","If their date change affects a shoot or travel already booked, give production / logistics a heads-up."]
+      },
+      {
+        title:"“How do I book my session?” / “Can you confirm my booking?”",
+        keywords:"book booking confirm interview session schedule prepare what to bring",
+        says:"They need to book their interview/shoot session, or want to confirm an existing booking.",
+        steps:["Send the same booking link (go.oncehub.com/inside-success) so they can book themselves.","Confirm the details once they're booked — the calendar sends its own reminders."],
+        reply:`Hi [their first name],
+You can book your session here and pick the time that works best for you:
+go.oncehub.com/inside-success
+Once you're booked you'll get a confirmation and reminders. Let me know if you need anything else!
+Thank you,
+[Your name]
+Client Concierge Manager`,
+        watch:["If they're asking how to prepare (“what do I bring?”), share the Pre-shoot checklist from the Help Center and the B-roll guidance.","If they haven't been cast yet, that's a casting question — see Casting Inquiries."]
+      }
+    ]
+  },
+  {
+    id:"b-roll", name:"B-Roll & Footage Submission", desc:"How and where to send footage",
+    icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10l6-3.5v11l-6-3.5"/></svg>',
+    cases:[
+      {
+        title:"“How and where do I send my footage? What's allowed?”",
+        keywords:"b-roll broll footage submit upload google drive dropbox iphone horizontal pixieset video clips",
+        says:"They're gathering footage and want to know how to send it — can they use a hosting site, is iPhone video okay, can they include an outside clip like a news interview?",
+        steps:["Tell them the one accepted way: a Google Drive or Dropbox folder link.","Cover the quick rules (horizontal video, short clips, labeled).","Point them to the Help Center guides if they want more detail."],
+        reply:`Hi [their first name],
+Thank you!
+We only accept B-roll via Google Drive or Dropbox — please move everything onto one of those, then share the folder link to this support email.
+Interviews can be filmed on an iPhone, but they must be filmed horizontal.
+You're welcome to send in the news segment too — congrats!
+Thank you,
+[Your name]
+Client Concierge Manager`,
+        watch:['Submit one way: a Google Drive or Dropbox folder link, set to “Anyone with the link can view.” (They can keep footage on another site like Pixieset, but it must be moved to Drive/Dropbox to send to us.)',"iPhone footage is fine if clear and well-lit — and must be horizontal.","Outside / news footage is okay if relevant.","Keep clips short (about 10–60 seconds), organized, and labeled. For a specific moment in a longer clip, label the file and note the timestamp.","If they're really asking whether footage fits their episode (a creative call), loop in the script / production team."]
+      }
+    ]
+  },
+  {
+    id:"episode", name:"Episode Review & Approval", desc:"Review, approval, the 7-day window",
+    icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>',
+    note:"There's a 7-day editing window from first delivery. After that, we move ahead to approval and publishing. Sign-off happens at insidesuccesstv.com/episodeapproval.",
+    cases:[
+      {
+        title:"Letting them know their episode is ready to approve",
+        keywords:"episode ready approval review sign off publish 7 day window outbound",
+        says:"Use this to send the review-and-approval request once the episode is ready.",
+        steps:[],
+        reply:`Hi [their first name],
+Thank you again for your incredible work on this project. Your episode is now ready for final approval.
+We've implemented your edits and ensured this version reflects your vision as closely as possible.
+As a reminder, the 7-day editing window from the original delivery has now passed. At this stage, we need to move forward with approval and publishing.
+Please review your episode here: 👉 [episode review link]
+Please sign here so we can proceed with publishing:
+insidesuccesstv.com/episodeapproval
+Once approved, we'll finalize and notify you as soon as your episode is live.
+Warm regards,`,
+        watch:["The 7-day editing window runs from original delivery. After it, the project moves to approval and publishing."]
+      },
+      {
+        title:"“It won't let me sign off / the approval link isn't working”",
+        keywords:"can't sign off approval link not working broken browser device episodeapproval",
+        says:"They love the episode but can't finish the sign-off — the page won't let them (sometimes with a screenshot).",
+        steps:["Reassure them the link works and walk them through the quick fix."],
+        reply:`Hi [their first name],
+The link is working — you may just need to switch browsers or try a different device:
+insidesuccesstv.com/episodeapproval
+Thanks,
+[Your name]
+Client Concierge Manager`,
+        watch:["First fix is always a different browser or device (and try switching Wi-Fi and cellular).","If it's still broken after that, get the web/tech owner on it rather than leaving them stuck."]
+      },
+      {
+        title:"“What's the status?” / “Is my episode live yet?”",
+        keywords:"status live when published press release follow up going live",
+        says:"They're asking about status, haven't approved yet, or are asking about a press release / go-live.",
+        steps:["If they still haven't signed off, nudge them gently toward the approval link.","Confirm the next steps and let them know they'll be notified the moment it's live."],
+        reply:`Hi [their first name],
+Thanks for checking in! [Your episode is in the final steps and we'll let you know the moment it's live. / We just need your sign-off to publish — you can approve it here: insidesuccesstv.com/episodeapproval]
+You'll get a notification as soon as it goes live.
+Best,
+[Your name]
+Client Concierge Manager`,
+        watch:["Press releases and go-live announcements go out as their own separate emails.","If they want creative changes after the editing window, that's a call for the production / editing team — don't promise re-edits yourself."]
+      }
+    ]
+  },
+  {
+    id:"assets", name:"Assets & Documents", desc:"Contracts and other documents",
+    icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><polyline points="14 3 14 8 19 8"/></svg>',
+    cases:[
+      {
+        title:"“Can I get a copy of my contract / a document?”",
+        keywords:"contract copy document agreement asset records send file paperwork",
+        says:"The customer (or their assistant) wants a copy of their signed contract or another document — often ahead of a shoot or for their records.",
+        steps:["Find the document.","Attach it and send a short, friendly note.","CC the right internal person (e.g. the account or legal contact) so they know it went out."],
+        reply:`Hi [their first name],
+Attached is the [contract]!
+Thanks,
+[Your name]
+Client Concierge Manager`,
+        watch:["For sensitive documents, make sure the person asking is allowed to have it (e.g. an assistant acting for the client). If unsure, check with the account owner first.","For design/deliverable files (posters, thumbnails, landing pages, production plans), ask the design / production owner if you don't have the latest version."]
+      }
+    ]
+  },
+  {
+    id:"casting", name:"Casting Inquiries", desc:"Prep, timing, “am I cast?”",
+    icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>',
+    cases:[
+      {
+        title:"Casting prep or confusion about the deadline",
+        keywords:"casting call audition deadline cohort cut off prepare am i cast timeline",
+        says:"They're getting ready for their casting call and are confused about the cut-off date versus their own scheduled call.",
+        steps:["If it's a casting decision or date you can't confirm, say so plainly and tell them you're checking with the casting team.","Give the one reassurance that's always safe: the date that matters is their own casting call, not the general cohort date."],
+        reply:`Hi [their first name],
+I'm not in the casting department, but I've asked the team to confirm the cut-off date for you.
+The date that counts for your review is your own casting call on [date] — the timing is based on when your call happens, not the general date mentioned in the email.
+Thank you,
+[Your name]
+Client Concierge Manager`,
+        watch:["Stay in your lane. Casting decisions, deadlines, and “am I cast?” belong to the casting team. Reassure, loop them in, and tell the customer you've done so — don't make the call yourself."],
+        ref:{
+          title:"How casting works (keep handy for accurate answers)",
+          items:[
+            "The casting call IS the audition. We get 500+ applications a day and pick a limited number.",
+            "Two things decide it: (1) Alignment — does their brand and story fit the audience; and (2) the green light — if approved on the call, a quick social-media/Google check runs, and the team emails by ~10am EST the next day to confirm.",
+            "The current group closes Sunday at 11:59pm. If accepted, a second call covers onboarding/scripting and a date to fly to Miami within 2026.",
+            "How to prepare: review the info page from when they booked; look at the studio mission and current cast; watch at least one episode (the CEO's is great); be professional on camera — good lighting, not from a car.",
+            "Studio: 1210 Washington Ave, Unit 250, Miami, FL 33139. More detail: the “How casting works” Help Center article."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    id:"calls", name:"Money Mondays & Calls", desc:"Joining the weekly live call",
+    icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.5 10.5l6-4v11l-6-4"/><rect x="2.5" y="6" width="13" height="12" rx="2.5"/></svg>',
+    note:"Money Monday goes live every Monday at 11:30am EST. The join link is insidesuccesstv.com/mondaylive.",
+    cases:[
+      {
+        title:"“I can't join the Monday call / I need the link”",
+        keywords:"money monday call link join zoom dns prohibited ip error connect mondaylive marketing call",
+        says:"They're trying to join and either need the link or are hitting a connection error (like “DNS points to prohibited IP”).",
+        steps:["Send the join link.","If they're getting an error, walk them through the quick fixes."],
+        reply:`Hi [their first name],
+The call link is working — here it is: insidesuccesstv.com/mondaylive
+If it won't open, try a different browser (Safari instead of Chrome, or the other way around), or switch between Wi-Fi and cellular data — that usually clears it up.
+Thank you,
+[Your name]
+Client Concierge Manager`,
+        watch:["For “can't connect” errors, the fixes are almost always: different browser, different device, or switch Wi-Fi ↔ cellular.","For schedule/participation details, share the “Marketing and Promotion Intensive and event participation” article.","For bigger events or masterminds, point to that same article or loop in the events owner."]
+      }
+    ]
+  }
+];
+
+const $ = s => document.querySelector(s);
+const results = $("#results");
+const pills = $("#pills");
+const qInput = $("#q");
+let activeCat = "all";
+let query = "";
+
+/* ---------- Theme ---------- */
+const root = document.documentElement;
+const themeBtn = $("#themeBtn");
+const SUN = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="22"/><line x1="2" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="22" y2="12"/><line x1="4.6" y1="4.6" x2="6.4" y2="6.4"/><line x1="17.6" y1="17.6" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="6.4" y2="17.6"/><line x1="17.6" y1="6.4" x2="19.4" y2="4.6"/></svg>';
+const MOON = '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+function applyTheme(t){
+  root.setAttribute("data-theme", t);
+  const toLight = t === "dark";
+  themeBtn.innerHTML = toLight ? SUN : MOON;
+  themeBtn.setAttribute("aria-label", toLight ? "Switch to light theme" : "Switch to dark theme");
+  themeBtn.setAttribute("aria-pressed", t === "light" ? "true" : "false");
+}
+(function initTheme(){
+  let t = null;
+  try{ t = localStorage.getItem("pb-theme"); }catch(e){}
+  if(!t){ t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) ? "light" : "dark"; }
+  applyTheme(t);
+})();
+themeBtn.addEventListener("click", () => {
+  const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+  applyTheme(next);
+  try{ localStorage.setItem("pb-theme", next); }catch(e){}
+});
+
+/* ---------- Render ---------- */
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function highlight(s, q){
+  if(!q) return esc(s);
+  const re = new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig");
+  return esc(s).replace(re,"<mark>$1</mark>");
+}
+
+const allPill = pillEl("all","All", true);
+pills.appendChild(allPill);
+DATA.forEach(c => pills.appendChild(pillEl(c.id, c.name, false)));
+function pillEl(id, label, active){
+  const b = document.createElement("button");
+  b.className = "pill" + (active?" active":"");
+  b.dataset.cat = id;
+  b.innerHTML = '<span class="dot"></span>' + esc(label);
+  b.onclick = () => {
+    activeCat = id;
+    document.querySelectorAll(".pill").forEach(p=>p.classList.toggle("active", p.dataset.cat===id));
+    render();
+    if(id!=="all"){ const sec=document.getElementById("sec-"+id); if(sec) window.scrollTo({top:sec.offsetTop-140, behavior:"smooth"}); }
+    else window.scrollTo({top:0,behavior:"smooth"});
+  };
+  return b;
+}
+
+function matchCase(cat, c, q){
+  if(!q) return true;
+  const hay = (c.title+" "+(c.says||"")+" "+(c.keywords||"")+" "+(c.reply||"")+" "+cat.name+" "+(c.steps||[]).join(" ")+" "+(c.watch||[]).join(" ")).toLowerCase();
+  return q.toLowerCase().split(/\s+/).every(t => hay.includes(t));
+}
+
+function render(){
+  results.innerHTML = "";
+  let total = 0;
+  DATA.forEach(cat => {
+    if(activeCat!=="all" && activeCat!==cat.id) return;
+    const cases = cat.cases.filter(c => matchCase(cat,c,query));
+    if(!cases.length) return;
+    total += cases.length;
+    const sec = document.createElement("section");
+    sec.className = "cat"; sec.id = "sec-"+cat.id;
+    sec.innerHTML = `<div class="cat-head"><div class="ic">${cat.icon}</div><div><h3>${esc(cat.name)}</h3><div class="desc">${esc(cat.desc)}</div></div><div class="line"></div></div>`;
+    const grid = document.createElement("div");
+    grid.className = "grid";
+    cases.forEach(c => grid.appendChild(cardEl(cat,c)));
+    sec.appendChild(grid);
+    results.appendChild(sec);
+  });
+  $("#empty").classList.toggle("show", total===0);
+  $("#count").textContent = total + (total===1?" situation":" situations") + (query?` matching “${query}”`:"") + (activeCat!=="all"?` in ${DATA.find(d=>d.id===activeCat).name}`:"");
+}
+
+function cardEl(cat,c){
+  const card = document.createElement("div");
+  card.className = "card";
+  let html = `<h4>${highlight(c.title,query)}</h4>`;
+  if(c.says) html += `<div class="field"><div class="label">What they usually say</div><p class="says">${highlight(c.says,query)}</p></div>`;
+  if(c.steps && c.steps.length) html += `<div class="field"><div class="label">What to do</div><ul class="steps">${c.steps.map(s=>`<li>${highlight(s,query)}</li>`).join("")}</ul></div>`;
+  if(c.reply){
+    html += `<div class="field"><div class="label">Reply you can send</div>
+      <div class="reply"><div class="reply-body">${highlight(c.reply,query)}</div>
+      <div class="reply-foot"><button class="copy" type="button" aria-label="Copy reply to clipboard">${copyIcon()} Copy reply</button></div></div></div>`;
+  } else if(c.na){
+    html += `<div class="field"><span class="tag-na">${esc(c.na)}</span></div>`;
+  }
+  if(c.ref){
+    html += `<div class="watch" style="background:var(--reply-bg);border-color:var(--line)"><div class="label">${esc(c.ref.title)}</div><ul style="padding-left:17px">${c.ref.items.map(i=>`<li style="color:var(--text-2)">${highlight(i,query)}</li>`).join("")}</ul></div>`;
+  }
+  if(c.watch && c.watch.length){
+    html += `<div class="watch"><div class="label">⚠ Watch out for</div><ul>${c.watch.map(w=>`<li>${highlight(w,query)}</li>`).join("")}</ul></div>`;
+  }
+  card.innerHTML = html;
+  const btn = card.querySelector(".copy");
+  if(btn){
+    btn.addEventListener("click", async () => {
+      try{ await navigator.clipboard.writeText(c.reply); }
+      catch(e){ const ta=document.createElement("textarea"); ta.value=c.reply; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
+      btn.classList.add("done");
+      btn.innerHTML = checkIcon()+" Copied!";
+      setTimeout(()=>{ btn.classList.remove("done"); btn.innerHTML = copyIcon()+" Copy reply"; }, 1600);
+    });
+  }
+  return card;
+}
+function copyIcon(){return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';}
+function checkIcon(){return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';}
+
+qInput.addEventListener("input", e => { query = e.target.value.trim(); render(); });
+qInput.addEventListener("keydown", e => { if(e.key==="Escape"){ qInput.value=""; query=""; render(); } });
+document.addEventListener("keydown", e => { if(e.key==="/" && document.activeElement!==qInput){ e.preventDefault(); qInput.focus(); } });
+
+render();
+</script>
+</body>
+</html>
