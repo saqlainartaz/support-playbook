@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -255,7 +255,7 @@
       <input id="q" type="text" placeholder="Search a situation — try “refund”, “reschedule”, “monday”…" autocomplete="off" spellcheck="false" aria-label="Search situations" />
       <span class="kbd">/</span>
     </div>
-    <button class="theme-toggle" id="themeBtn" type="button" aria-label="Switch to light theme" aria-pressed="false"></button>
+    <button class="theme-toggle" id="themeBtn" type="button" aria-label="Switch to dark theme" aria-pressed="true"></button>
   </div>
   <nav class="cats" aria-label="Categories"><div class="cats-inner" id="pills"></div></nav>
 </header>
@@ -558,7 +558,7 @@ function applyTheme(t){
 (function initTheme(){
   let t = null;
   try{ t = localStorage.getItem("pb-theme"); }catch(e){}
-  if(!t){ t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) ? "light" : "dark"; }
+  if(!t){ t = "light"; }
   applyTheme(t);
 })();
 themeBtn.addEventListener("click", () => {

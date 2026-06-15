@@ -69,9 +69,10 @@ icon) — the category map below stays in lockstep.
 - Fully self-contained (inline CSS + JS + content). The only external dependencies are Google
   Fonts (Bricolage Grotesque + Hanken Grotesk; degrade to system fonts offline) and the logo
   `images.jpeg` — keep `images.jpeg` next to `index.html` when moving or hosting.
-- **Theming:** CSS custom properties under `[data-theme="dark"]` (default) and
-  `[data-theme="light"]`. The toggle persists to `localStorage` key `pb-theme` and respects
-  `prefers-color-scheme` on first load. The accent is the logo's **gold** (`#dcb56b` on dark,
+- **Theming:** CSS custom properties under `[data-theme="dark"]` and `[data-theme="light"]`
+  (**light** is the first-visit default — set on `<html>` and in `initTheme()`). The toggle
+  persists to `localStorage` key `pb-theme`; a stored preference always wins. The accent is the
+  logo's **gold** (`#dcb56b` on dark,
   the darker `#8a6417` on light for WCAG-AA contrast). Add colors as tokens — don't hardcode.
 - Rendering is plain DOM building from `DATA` (no framework): `render()` rebuilds sections,
   `cardEl()` builds each card, search filters `DATA` live, category pills filter/scroll.
