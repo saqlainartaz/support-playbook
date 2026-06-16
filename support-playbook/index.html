@@ -147,6 +147,8 @@
   .hero h2 .accent{color:var(--gold); text-shadow:0 0 26px var(--ring);}
   .hero p{font-size:16px; color:var(--text-2); max-width:640px; margin:0;}
   .hero p strong{color:var(--text);}
+  .notice{margin:0 0 28px; background:var(--chip); border:1px solid var(--line); border-left:3px solid var(--gold-solid); border-radius:12px; padding:13px 17px; font-size:13.5px; color:var(--text-2); line-height:1.6;}
+  .notice strong{color:var(--text);}
   .count{font-size:12.5px; color:var(--text-3); margin-top:14px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;}
 
   section.cat{margin-bottom:14px; scroll-margin-top:150px;}
@@ -171,6 +173,9 @@
   .reply{margin-top:4px; background:var(--reply-bg); border:1px solid var(--reply-line); border-radius:12px; overflow:hidden;}
   .reply-body{padding:14px 15px; font-size:13.5px; color:var(--text); white-space:pre-wrap; line-height:1.62; font-family:var(--body);}
   .reply-foot{display:flex; justify-content:flex-end; padding:0 12px 12px;}
+  .reply-opt{margin-top:12px;}
+  .reply-opt:first-of-type{margin-top:6px;}
+  .reply-cap{font-size:12px; font-weight:700; color:var(--text-2); margin-bottom:5px; letter-spacing:.01em;}
   .copy{cursor:pointer; border:none; border-radius:9px; padding:9px 16px; background:var(--gold-solid); color:var(--on-gold);
         font-family:var(--body); font-weight:700; font-size:13.5px; display:inline-flex; align-items:center; gap:8px;
         transition:background .15s, transform .1s, box-shadow .15s; box-shadow:0 6px 18px -8px var(--ring);}
@@ -203,6 +208,9 @@
   .ref .links .k{color:var(--text); font-weight:600;}
   .ref .links .v{color:var(--text-3); font-family:var(--body);}
   .ref .links code{background:var(--chip); padding:2px 7px; border-radius:6px; font-size:12.5px; color:var(--gold);}
+  .ref .links a.lnk{color:var(--gold); text-decoration:none; font-weight:600;}
+  .ref .links a.lnk:hover{text-decoration:underline;}
+  .ref .links .sub{color:var(--text-3); font-weight:700; text-transform:uppercase; letter-spacing:.06em; font-size:11px; padding-top:11px;}
 
   /* ===================== MISC ===================== */
   .empty{text-align:center; padding:70px 20px; color:var(--text-2); display:none;}
@@ -265,6 +273,8 @@
     <div class="count" id="count"></div>
   </div>
 
+  <div class="notice" role="note"><strong>Who answers what.</strong> Each area’s replies are owned by that department — <strong>billing &amp; payments</strong> by the Billing &amp; Payments team, <strong>episodes</strong> by Ori &amp; team, and so on. Reach for this playbook when you’re covering the inbox and that person isn’t available.</div>
+
   <div id="results"></div>
 
   <div class="empty" id="empty">
@@ -296,6 +306,17 @@
           <li><span class="k">Help Center</span> &nbsp;<code>intercom.help/inside-success</code></li>
           <li><span class="k">Studio</span> <span class="v">— 1210 Washington Ave, Unit 250, Miami, FL 33139</span></li>
           <li><span class="k">“Link won’t open” fix</span> <span class="v">— different browser/device, or switch Wi-Fi ↔ cellular</span></li>
+          <li class="sub">Studio &amp; onboarding</li>
+          <li><span class="k">Studio info page</span> &nbsp;<a class="lnk" href="https://www.legacymakerstv.com/studio" target="_blank" rel="noopener">open ↗</a></li>
+          <li><span class="k">Past Money Monday recordings</span> &nbsp;<a class="lnk" href="https://www.legacymakerstv.com/moneymondays" target="_blank" rel="noopener">open ↗</a></li>
+          <li><span class="k">Onboarding call schedule</span> &nbsp;<a class="lnk" href="https://go.oncehub.com/isonboarding" target="_blank" rel="noopener">open ↗</a></li>
+          <li><span class="k">Onboarding call Zoom link</span> &nbsp;<a class="lnk" href="https://insidesuccess.com/onboarding" target="_blank" rel="noopener">open ↗</a></li>
+          <li><span class="k">Onboarding form</span> &nbsp;<a class="lnk" href="https://form.typeform.com/to/Fs6tcBfy" target="_blank" rel="noopener">open ↗</a></li>
+          <li class="sub">B-roll <span class="v" style="text-transform:none;letter-spacing:0;font-weight:400">(being updated)</span></li>
+          <li><span class="k">B-roll guidelines</span> &nbsp;<a class="lnk" href="https://docs.google.com/document/d/1I56kdBTOFP_oN2_hlgxkq0sxbJ04NiWi/edit" target="_blank" rel="noopener">open ↗</a></li>
+          <li><span class="k">Friends &amp; Family testimonial guidelines</span> &nbsp;<a class="lnk" href="https://docs.google.com/document/d/1mjxRA5rDb8_6SpT8Viq6nJ3e5cZGAyolEW_R4slwcGE/edit?tab=t.0" target="_blank" rel="noopener">open ↗</a></li>
+          <li><span class="k">Release form</span> &nbsp;<a class="lnk" href="https://docs.google.com/document/d/1ijs1hfrcf5kfT4vWorfu_KiUQWHCb-j5K77rjmEjFl4/edit?tab=t.0" target="_blank" rel="noopener">open ↗</a></li>
+          <li><span class="k">Episode editing guidelines</span> &nbsp;<a class="lnk" href="https://drive.google.com/file/d/1o_dt_jxmMldR8buXiiYHfE1oq2anAEfk/view" target="_blank" rel="noopener">open ↗</a></li>
         </ul>
       </div>
     </div>
@@ -368,16 +389,28 @@ Best,`,
     cases:[
       {
         title:"“I need to change / move / cancel my studio session”",
-        keywords:"reschedule cancel move studio session push date appointment change booking oncehub",
+        keywords:"reschedule cancel move studio session push date appointment change booking oncehub confirmation email google calendar booking link",
         says:"Something came up — travel trouble, an accident, illness, a clash — and they need to push, bring forward, or cancel and rebook.",
-        steps:['Say a quick, kind “sorry to hear that.”',"Send them the self-serve link so they can pick a new time themselves."],
-        reply:`Hi [their first name],
-Sorry to hear that — you can use this link to reschedule your session:
-go.oncehub.com/inside-success
+        steps:['Say a quick, kind “sorry to hear that.”',"Their reschedule/cancel link is specific to their booking — it's NOT the general go.oncehub.com/inside-success link (that one only books a brand-new session).","To get their link: search the client's name in the studio Google Calendar, open their booking, and copy the reschedule/cancel link — or tell the client to open their original booking confirmation email, where the same link lives.","Send them the link, or point them to their confirmation email."],
+        replies:[
+          {label:"Point them to their email", text:`Hi [their first name],
+Sorry to hear that — the link to reschedule or cancel your session is in your original booking confirmation email. Open that email and use the reschedule/cancel link inside.
 Thank you,
 [Your name]
-Client Concierge Manager`,
-        watch:["The same link handles everything — reschedule, moving earlier, or cancel-and-rebook. They choose the new time.","If the link won't open, point them to a different browser or device.","If their date change affects a shoot or travel already booked, give production / logistics a heads-up."]
+Client Concierge Manager`},
+          {label:"Paste their link", text:`Hi [their first name],
+Sorry to hear that — here's your link to reschedule or cancel your session:
+[paste their reschedule/cancel link]
+Thank you,
+[Your name]
+Client Concierge Manager`},
+          {label:"Both in one reply", text:`Hi [their first name],
+Sorry to hear that — you can reschedule or cancel your session using the link in your original booking confirmation email, or use this one directly: [paste their reschedule/cancel link]
+Thank you,
+[Your name]
+Client Concierge Manager`}
+        ],
+        watch:["The reschedule/cancel link handles both — moving the session (earlier or later) and cancel-and-rebook.","If the link won't open, point them to a different browser or device.","If their date change affects a shoot or travel already booked, give production / logistics a heads-up."]
       },
       {
         title:"“How do I book my session?” / “Can you confirm my booking?”",
@@ -392,6 +425,43 @@ Thank you,
 [Your name]
 Client Concierge Manager`,
         watch:["If they're asking how to prepare (“what do I bring?”), share the Pre-shoot checklist from the Help Center and the B-roll guidance.","If they haven't been cast yet, that's a casting question — see Casting Inquiries."]
+      },
+      {
+        title:"“What's next? / Anything missing on my end?”",
+        keywords:"whats next next steps onboarding missing tasks anything missing left to do cast fulfillment board contract ob form onboarding form ob call onboarding call script production plan shoot date good to go ready",
+        says:"They want to know where they are in the process — what they still need to do, or whether anything's outstanding on their side.",
+        steps:["Open the Cast Fulfillment board and check these columns for the client: Contract, OB Form, OB Call, Script/Production Plan, and Shoot Date.","If everything's complete, they're good to go — use the “All done” reply (waiting for their shoot, or for us to send the episode if they've already filmed).","If something's missing, send the matching reply with the link to complete it — OB Call, OB Form, Script, or Shoot Date.","Only send the “Missing — Shoot date” reply once the OB Form and OB Call are both complete (the script doesn't need to be done first)."],
+        replies:[
+          {label:"All done — good to go", text:`Hi [their first name],
+Great news — you've completed all of your onboarding tasks, so there's nothing else needed on your end right now! [Just sit tight for your upcoming shoot day. / Since you've already filmed, you're all set — just wait for us to send your episode over to you.]
+Thank you,
+[Your name]
+Client Concierge Manager`},
+          {label:"Missing — OB Call", text:`Hi [their first name],
+It looks like you still haven't attended an onboarding call. This group call gives you clarity on our process and answers a lot of common questions. Here's the link to schedule:
+go.oncehub.com/isonboarding
+Thank you,
+[Your name]
+Client Concierge Manager`},
+          {label:"Missing — OB Form", text:`Hi [their first name],
+It looks like you still haven't completed your onboarding form — this is the most important step of the process. Please fill it out so our team can start working on your promotional assets and create your script. Here's the link:
+https://form.typeform.com/to/Fs6tcBfy
+Thank you,
+[Your name]
+Client Concierge Manager`},
+          {label:"Missing — Script", text:`Hi [their first name],
+Our team is working on your script based on all the info you provided. We'll send it over as soon as it's complete — besides that, you're good to go!
+Thank you,
+[Your name]
+Client Concierge Manager`},
+          {label:"Missing — Shoot date", text:`Hi [their first name],
+It looks like you just need to schedule your studio session in Miami! Here's the link:
+go.oncehub.com/inside-success
+Thank you,
+[Your name]
+Client Concierge Manager`}
+        ],
+        watch:["Only send the “Missing — Shoot date” reply once the OB Form and OB Call are both complete — the script doesn't need to be done yet.","The OB Call schedule, OB Form, and studio booking links all live in Links & resources if you need them."]
       }
     ]
   },
@@ -452,15 +522,30 @@ Client Concierge Manager`,
       },
       {
         title:"“What's the status?” / “Is my episode live yet?”",
-        keywords:"status live when published press release follow up going live",
+        keywords:"status live when published press release follow up going live monday video board istv status comment v1 v2 edit review pending client approval 90 days filming resend",
         says:"They're asking about status, haven't approved yet, or are asking about a press release / go-live.",
-        steps:["If they still haven't signed off, nudge them gently toward the approval link.","Confirm the next steps and let them know they'll be notified the moment it's live."],
-        reply:`Hi [their first name],
-Thanks for checking in! [Your episode is in the final steps and we'll let you know the moment it's live. / We just need your sign-off to publish — you can approve it here: insidesuccesstv.com/episodeapproval]
-You'll get a notification as soon as it goes live.
+        steps:["On Monday.com, open the Video board → ISTV status. Always check the current status AND the comment section for the last communication with the team.","If the status is V1 or V2 edit/review, the team is still working on the episode. Check how many days since filming — if it's under ~90 days, it's still within the delivery timeline, so the client just needs to wait. Use the “Still in editing” reply.","If the status is “Pending client approval,” we've already sent them the episode — they need to review and submit any edits. Always resend the episode link. Use the “Pending approval — resend the episode” reply."],
+        replies:[
+          {label:"Still in editing", text:`Hi [their first name],
+Thanks for checking in! Your episode is still with our editing team and on track. Episodes are typically delivered within about 90 days of filming, so yours is still within that window — we'll let you know the moment it's ready for you to review.
 Best,
 [Your name]
-Client Concierge Manager`,
+Client Concierge Manager`},
+          {label:"Pending approval — resend the episode", text:`Hi [their first name],
+It looks like we sent your episode on [date] and we haven't heard back yet — I'll include the email we sent you below:
+
+Hi [their first name],
+Thank you again for your incredible work on this project. Your episode is now ready for final approval.
+We've implemented your edits and ensured this version reflects your vision as closely as possible.
+As a reminder, the 7-day editing window from the original delivery has now passed. At this stage, we need to move forward with approval and publishing.
+Please review your episode here: 👉 [episode review link]
+Please sign here so we can proceed with publishing:
+insidesuccesstv.com/episodeapproval
+Once approved, we'll finalize and notify you as soon as your episode is live.
+Warm regards,
+[Your name]
+Client Concierge Manager`}
+        ],
         watch:["Press releases and go-live announcements go out as their own separate emails.","If they want creative changes after the editing window, that's a call for the production / editing team — don't promise re-edits yourself."]
       }
     ]
@@ -471,9 +556,9 @@ Client Concierge Manager`,
     cases:[
       {
         title:"“Can I get a copy of my contract / a document?”",
-        keywords:"contract copy document agreement asset records send file paperwork",
+        keywords:"contract copy document agreement asset records send file paperwork cast fulfillment board download",
         says:"The customer (or their assistant) wants a copy of their signed contract or another document — often ahead of a shoot or for their records.",
-        steps:["Find the document.","Attach it and send a short, friendly note.","CC the right internal person (e.g. the account or legal contact) so they know it went out."],
+        steps:["Find the document — for a contract, go to the Cast Fulfillment board, search their name, find the contract column, and download it.","Attach it and send a short, friendly note.","CC the right internal person (e.g. the account or legal contact) so they know it went out."],
         reply:`Hi [their first name],
 Attached is the [contract]!
 Thanks,
@@ -593,7 +678,7 @@ function pillEl(id, label, active){
 
 function matchCase(cat, c, q){
   if(!q) return true;
-  const hay = (c.title+" "+(c.says||"")+" "+(c.keywords||"")+" "+(c.reply||"")+" "+cat.name+" "+(c.steps||[]).join(" ")+" "+(c.watch||[]).join(" ")).toLowerCase();
+  const hay = (c.title+" "+(c.says||"")+" "+(c.keywords||"")+" "+(c.reply||"")+" "+(c.replies||[]).map(r=>r.text).join(" ")+" "+cat.name+" "+(c.steps||[]).join(" ")+" "+(c.watch||[]).join(" ")).toLowerCase();
   return q.toLowerCase().split(/\s+/).every(t => hay.includes(t));
 }
 
@@ -624,7 +709,12 @@ function cardEl(cat,c){
   let html = `<h4>${highlight(c.title,query)}</h4>`;
   if(c.says) html += `<div class="field"><div class="label">What they usually say</div><p class="says">${highlight(c.says,query)}</p></div>`;
   if(c.steps && c.steps.length) html += `<div class="field"><div class="label">What to do</div><ul class="steps">${c.steps.map(s=>`<li>${highlight(s,query)}</li>`).join("")}</ul></div>`;
-  if(c.reply){
+  if(c.replies && c.replies.length){
+    html += `<div class="field"><div class="label">Replies you can send</div>${c.replies.map(r=>`
+      <div class="reply-opt"><div class="reply-cap">${highlight(r.label,query)}</div>
+      <div class="reply"><div class="reply-body">${highlight(r.text,query)}</div>
+      <div class="reply-foot"><button class="copy" type="button" aria-label="Copy reply to clipboard">${copyIcon()} Copy reply</button></div></div></div>`).join("")}</div>`;
+  } else if(c.reply){
     html += `<div class="field"><div class="label">Reply you can send</div>
       <div class="reply"><div class="reply-body">${highlight(c.reply,query)}</div>
       <div class="reply-foot"><button class="copy" type="button" aria-label="Copy reply to clipboard">${copyIcon()} Copy reply</button></div></div></div>`;
@@ -638,16 +728,17 @@ function cardEl(cat,c){
     html += `<div class="watch"><div class="label">⚠ Watch out for</div><ul>${c.watch.map(w=>`<li>${highlight(w,query)}</li>`).join("")}</ul></div>`;
   }
   card.innerHTML = html;
-  const btn = card.querySelector(".copy");
-  if(btn){
+  const texts = c.replies ? c.replies.map(r=>r.text) : (c.reply ? [c.reply] : []);
+  card.querySelectorAll(".copy").forEach((btn,i) => {
+    const text = texts[i];
     btn.addEventListener("click", async () => {
-      try{ await navigator.clipboard.writeText(c.reply); }
-      catch(e){ const ta=document.createElement("textarea"); ta.value=c.reply; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
+      try{ await navigator.clipboard.writeText(text); }
+      catch(e){ const ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
       btn.classList.add("done");
       btn.innerHTML = checkIcon()+" Copied!";
       setTimeout(()=>{ btn.classList.remove("done"); btn.innerHTML = copyIcon()+" Copy reply"; }, 1600);
     });
-  }
+  });
   return card;
 }
 function copyIcon(){return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';}

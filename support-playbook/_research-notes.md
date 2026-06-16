@@ -76,6 +76,13 @@ rebook later. (Topic: Pre-Shoot Coordination, tag "pre shoot".)
 
 Pattern: brief empathy → self-serve reschedule link (OnceHub `go.oncehub.com/inside-success`)
 → signed by the concierge. Same link/flow covers reschedule, move-ahead, and cancel-then-rebook.
+**Correction (Support-team direct knowledge, 2026-06-16):** the reschedule/cancel link is
+**booking-specific** — note the source reply used `go.oncehub.com/inside-success?...` with a
+per-booking query string, not the bare path. The bare `go.oncehub.com/inside-success` only books a
+brand-new session. To get a client's actual reschedule/cancel link: look up their name in the
+**studio Google Calendar** and copy it from their booking entry, or have the client open their
+**original booking confirmation email**, where the same link lives. Playbook card updated to reflect
+this with three reply variants (email / paste-link / both).
 Note: replies are signed with a real agent name (e.g. "Angelina, Client Concierge Manager") or
 just "Best,". The Support inbox is staffed by named concierges.
 
@@ -109,6 +116,16 @@ Customer: "it's awesome! but it's not allowing me to sign off" (+ screenshot).
 Pattern: reassure the link works → suggest different browser/device → re-share approval URL.
 Key fact: approval is done at `insidesuccesstv.com/episodeapproval`; there is a 7-day editing
 window from original delivery, after which they move to approval/publishing.
+
+### Status triage (Support-team direct knowledge, 2026-06-16)
+For "What's the status? / Is my episode live yet?", check the episode on the **Monday.com Video
+board → ISTV status** column, and read the **comment section** for the last communication with the
+team. Status meanings:
+- **V1 / V2 edit/review** — team is still editing. Cross-check days since filming: delivery
+  timeline is ~**90 days from filming**, so under ~90 days = still on track, client waits.
+- **Pending client approval** — episode already sent; client needs to review/submit edits. Always
+  **resend the episode link** (re-send the original approval email). Playbook Situation 3 updated
+  with two replies (Still in editing / Pending approval — resend).
 
 ---
 

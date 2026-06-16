@@ -10,7 +10,8 @@ Use this when a customer asks for a copy of a contract, agreement, or other docu
 contract or another document — often ahead of a shoot or just for their records.
 
 **What to do:**
-1. Find the document.
+1. Find the document — for a contract, go to the **Cast Fulfillment board**, search their name,
+   find the contract column, and download it.
 2. Attach it and send a short, friendly note.
 3. CC the right internal person (e.g. the account or legal contact) so they know it went out.
 

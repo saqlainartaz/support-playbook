@@ -8,6 +8,10 @@ follow the steps, and send the ready-made reply.
 > **Copy** button on every reply. Just double-click the file (or open the shared link). The `.md`
 > files below are the editable source — update both if you change wording.
 
+> **Who answers what.** Each area's replies are owned by that department — **billing & payments**
+> by the Billing & Payments team, **episodes** by Ori & team, and so on. Reach for this playbook
+> when you're covering the inbox and that person isn't available.
+
 ## How to use this playbook
 1. **Find the category** that matches the email you're looking at.
 2. **Match the situation** inside that file.
@@ -45,6 +49,20 @@ follow the steps, and send the ready-made reply.
   event participation*
 - **Quick fix for "the link won't open":** try a different browser or device, or switch between
   Wi-Fi and cellular data.
+
+**Studio & onboarding**
+- **Studio info page:** https://www.legacymakerstv.com/studio
+- **Past Money Monday recordings:** https://www.legacymakerstv.com/moneymondays
+- **Onboarding call schedule:** https://go.oncehub.com/isonboarding
+- **Onboarding call Zoom link:** https://insidesuccess.com/onboarding
+- **Onboarding form:** https://form.typeform.com/to/Fs6tcBfy
+
+**B-roll** *(being updated)*
+- **B-roll guidelines:** https://docs.google.com/document/d/1I56kdBTOFP_oN2_hlgxkq0sxbJ04NiWi/edit
+- **Friends & Family testimonial guidelines:** https://docs.google.com/document/d/1mjxRA5rDb8_6SpT8Viq6nJ3e5cZGAyolEW_R4slwcGE/edit?tab=t.0
+- **Release form:** https://docs.google.com/document/d/1ijs1hfrcf5kfT4vWorfu_KiUQWHCb-j5K77rjmEjFl4/edit?tab=t.0
+
+**Episode editing guidelines:** https://drive.google.com/file/d/1o_dt_jxmMldR8buXiiYHfE1oq2anAEfk/view
 
 ## Studio address
 1210 Washington Ave, Unit 250, Miami, FL 33139.
